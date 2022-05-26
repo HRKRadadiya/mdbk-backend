@@ -1,0 +1,18 @@
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.addColumn(
+      'payment_history', // table name
+      'use', // new field name
+      {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
+    )
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn('payment_history', 'use');
+  }
+};

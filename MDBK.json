@@ -1,0 +1,1894 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "MDBK",
+    "contact": {}
+  },
+  "host": "http://newbizstart.iptime.org:3072/api/v1",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/member/social-auth": {
+      "post": {
+        "summary": "social-auth",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "social-auth",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/social-auth-request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/check-email": {
+      "post": {
+        "summary": "Check Email",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "CheckEmail",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/register": {
+      "post": {
+        "summary": "Registeration",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "Registeration",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "confirm_password",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/send-verification-code": {
+      "post": {
+        "summary": "Send Verification Code",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "SendVerificationCode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/reset-password-link": {
+      "post": {
+        "summary": "Send reset passwordlink",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "Sendresetpasswordlink",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/confirm-reset-password": {
+      "post": {
+        "summary": "Confirm Reset Password",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "ConfirmResetPassword",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "token",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/login": {
+      "post": {
+        "summary": "Login",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/member/switch-account": {
+      "post": {
+        "summary": "Switch Account",
+        "tags": [
+          "Member Auth"
+        ],
+        "operationId": "SwitchAccount",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "summary": "Admin Login",
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "AdminLogin",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/excel/members": {
+      "get": {
+        "summary": "Members",
+        "tags": [
+          "Excel"
+        ],
+        "operationId": "Members",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/user": {
+      "get": {
+        "summary": "Get All",
+        "tags": [
+          "User"
+        ],
+        "operationId": "GetAll",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create",
+        "tags": [
+          "User"
+        ],
+        "operationId": "Create",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple By Id",
+        "tags": [
+          "User"
+        ],
+        "operationId": "DeleteMultipleById",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/user/1": {
+      "get": {
+        "summary": "Get  By Id",
+        "tags": [
+          "User"
+        ],
+        "operationId": "GetById",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Update",
+        "tags": [
+          "User"
+        ],
+        "operationId": "Update",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete  By Id",
+        "tags": [
+          "User"
+        ],
+        "operationId": "DeleteById",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/member/active": {
+      "get": {
+        "summary": "Fetch All Active",
+        "tags": [
+          "Member"
+        ],
+        "operationId": "FetchAllActive",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "field",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "name | email"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "search text"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/member/1/profile": {
+      "get": {
+        "summary": "Fetch All Termination",
+        "tags": [
+          "Member"
+        ],
+        "operationId": "FetchAllTermination",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/admin/member/31/profile": {
+      "get": {
+        "summary": "Fetch Full Member Profile",
+        "tags": [
+          "Member"
+        ],
+        "operationId": "FetchFullMemberProfile",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/side-character/edit-profile/step1": {
+      "post": {
+        "summary": "Edit Profile Step 1",
+        "tags": [
+          "Side Character"
+        ],
+        "operationId": "EditProfileStep1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfileStep1Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/side-character/edit-profile/step2": {
+      "post": {
+        "summary": "Edit Profile Step 2",
+        "tags": [
+          "Side Character"
+        ],
+        "operationId": "EditProfileStep2",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfileStep2Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/side-character/edit-profile/step3": {
+      "post": {
+        "summary": "Edit Profile step 3",
+        "tags": [
+          "Side Character"
+        ],
+        "operationId": "EditProfilestep3",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfilestep3Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/side-character/profile": {
+      "get": {
+        "summary": "Find Profile",
+        "tags": [
+          "Side Character"
+        ],
+        "operationId": "FindProfile",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/side-character/experience/1": {
+      "delete": {
+        "summary": "Delete Work Experience",
+        "tags": [
+          "Side Character"
+        ],
+        "operationId": "DeleteWorkExperience",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/edit-profile/step1": {
+      "post": {
+        "summary": "Edit Profile Step 1",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "PostEditProfileStep1",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfileStep1Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/edit-profile/step2": {
+      "post": {
+        "summary": "Edit Profile Step 2",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "PostEditProfileStep2",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfileStep2Request1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/edit-profile/step3": {
+      "post": {
+        "summary": "Edit Profile Step 3",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "EditProfileStep3",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EditProfilestep3Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/send-phone-verification-code": {
+      "post": {
+        "summary": "Send Phone Verification Code",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "SendPhoneVerificationCode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/confirm-phone-verification": {
+      "post": {
+        "summary": "Confirm Phone Verification",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "ConfirmPhoneVerification",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "phone_verification_code",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/client/profile": {
+      "get": {
+        "summary": "FInd Profile",
+        "tags": [
+          "Client"
+        ],
+        "operationId": "FIndProfile",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/profile/send-phone-verification-code": {
+      "post": {
+        "summary": "Send Phone Verification Code",
+        "tags": [
+          "Member Profile"
+        ],
+        "operationId": "PostSendPhoneVerificationCode",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "description": ""
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/profile/confirm-phone-verification": {
+      "post": {
+        "summary": "Confirm Phone Verification",
+        "tags": [
+          "Member Profile"
+        ],
+        "operationId": "PostConfirmPhoneVerification",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "phone_verification_code",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/profile/related-images": {
+      "post": {
+        "summary": "Upload Related Images",
+        "tags": [
+          "Member Profile"
+        ],
+        "operationId": "UploadRelatedImages",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "related_images",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/profile/related-image/1": {
+      "delete": {
+        "summary": "Remove Related Images",
+        "tags": [
+          "Member Profile"
+        ],
+        "operationId": "RemoveRelatedImages",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "registration_type",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/profile/profile-picture": {
+      "post": {
+        "summary": "Upload Profile Images",
+        "tags": [
+          "Member Profile"
+        ],
+        "operationId": "UploadProfileImages",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "profile_image",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "registration_type",
+            "in": "formData",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "social-auth-request": {
+      "title": "social-auth-request",
+      "example": {
+        "name": "user",
+        "email": "user@gmail.com",
+        "login_type": "google",
+        "social_id": "547987487984879848979848"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "login_type": {
+          "type": "string"
+        },
+        "social_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "login_type",
+        "social_id"
+      ]
+    },
+    "CreateRequest": {
+      "title": "CreateRequest",
+      "example": {
+        "name": "sub admin",
+        "user_name": "sub_admin2",
+        "email": "sub_admin2@gmail.com",
+        "password": "12345678",
+        "phone": "8469084690",
+        "employee_type": "dispatch",
+        "role": false
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "employee_type": {
+          "type": "string"
+        },
+        "role": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "user_name",
+        "email",
+        "password",
+        "phone",
+        "employee_type",
+        "role"
+      ]
+    },
+    "UpdateRequest": {
+      "title": "UpdateRequest",
+      "example": {
+        "name": "admin",
+        "user_name": "sub_admin2",
+        "email": "sub_admin2@gmail.com",
+        "role": true,
+        "phone": "8469084690",
+        "employee_type": "dispatch"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "boolean"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "employee_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "user_name",
+        "email",
+        "role",
+        "phone",
+        "employee_type"
+      ]
+    },
+    "EditProfileStep1Request": {
+      "title": "EditProfileStep1Request",
+      "example": {
+        "nick_name": "teststt",
+        "introduction": "tets",
+        "phone": 9901452025,
+        "profession": "tt,mm,ff",
+        "homepage_link": "www.rrr.com",
+        "facebook_link": "www.rrr.com",
+        "instagram_link": "www.rrr.com",
+        "other_link": "www.rrr.com",
+        "fields": [
+          "zz",
+          "ii"
+        ],
+        "locations": [
+          {
+            "id": 141,
+            "province_id": 6,
+            "district_id": 3
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "nick_name": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "profession": {
+          "type": "string"
+        },
+        "homepage_link": {
+          "type": "string"
+        },
+        "facebook_link": {
+          "type": "string"
+        },
+        "instagram_link": {
+          "type": "string"
+        },
+        "other_link": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Location"
+          }
+        }
+      },
+      "required": [
+        "nick_name",
+        "introduction",
+        "phone",
+        "profession",
+        "homepage_link",
+        "facebook_link",
+        "instagram_link",
+        "other_link",
+        "fields",
+        "locations"
+      ]
+    },
+    "Location": {
+      "title": "Location",
+      "example": {
+        "id": 141,
+        "province_id": 6,
+        "district_id": 3
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "province_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "district_id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "province_id",
+        "district_id"
+      ]
+    },
+    "EditProfileStep2Request": {
+      "title": "EditProfileStep2Request",
+      "example": {
+        "experience": [
+          {
+            "id": 11,
+            "company_name": "ex1",
+            "position": "experiance.position",
+            "profession": "a, b, c",
+            "employment_start_date": "2019-1",
+            "employment_end_date": "2020-1"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "experience": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Experience"
+          }
+        }
+      },
+      "required": [
+        "experience"
+      ]
+    },
+    "Experience": {
+      "title": "Experience",
+      "example": {
+        "id": 11,
+        "company_name": "ex1",
+        "position": "experiance.position",
+        "profession": "a, b, c",
+        "employment_start_date": "2019-1",
+        "employment_end_date": "2020-1"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "profession": {
+          "type": "string"
+        },
+        "employment_start_date": {
+          "type": "string"
+        },
+        "employment_end_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "company_name",
+        "position",
+        "profession",
+        "employment_start_date",
+        "employment_end_date"
+      ]
+    },
+    "EditProfilestep3Request": {
+      "title": "EditProfilestep3Request",
+      "example": {
+        "desired_date": "weekdays",
+        "desired_time": "morning",
+        "desired_project_type": "short-term",
+        "insurance_status": "available",
+        "desired_work_type": "workfrom-home"
+      },
+      "type": "object",
+      "properties": {
+        "desired_date": {
+          "type": "string"
+        },
+        "desired_time": {
+          "type": "string"
+        },
+        "desired_project_type": {
+          "type": "string"
+        },
+        "insurance_status": {
+          "type": "string"
+        },
+        "desired_work_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "desired_date",
+        "desired_time",
+        "desired_project_type",
+        "insurance_status",
+        "desired_work_type"
+      ]
+    },
+    "EditProfileStep2Request1": {
+      "title": "EditProfileStep2Request1",
+      "example": {
+        "company": {
+          "name": "test",
+          "introduction": "company.introduction",
+          "contact_information": "company.contact_information",
+          "profession": "abc, abc,lll",
+          "registation_number": 87858877777,
+          "foundation_year": "2017",
+          "representative_name": "test",
+          "total_employees": 5,
+          "hashtags": [
+            "qqq",
+            "eee",
+            "xxg"
+          ],
+          "fields": [
+            "qqq",
+            "eee",
+            "xxz"
+          ],
+          "locations": [
+            {
+              "province_id": 1,
+              "district_id": 6,
+              "id": 0
+            },
+            {
+              "province_id": 2,
+              "district_id": 7,
+              "id": 0
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "company": {
+          "$ref": "#/definitions/Company"
+        }
+      },
+      "required": [
+        "company"
+      ]
+    },
+    "Company": {
+      "title": "Company",
+      "example": {
+        "name": "test",
+        "introduction": "company.introduction",
+        "contact_information": "company.contact_information",
+        "profession": "abc, abc,lll",
+        "registation_number": 87858877777,
+        "foundation_year": "2017",
+        "representative_name": "test",
+        "total_employees": 5,
+        "hashtags": [
+          "qqq",
+          "eee",
+          "xxg"
+        ],
+        "fields": [
+          "qqq",
+          "eee",
+          "xxz"
+        ],
+        "locations": [
+          {
+            "province_id": 1,
+            "district_id": 6,
+            "id": 0
+          },
+          {
+            "province_id": 2,
+            "district_id": 7,
+            "id": 0
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "contact_information": {
+          "type": "string"
+        },
+        "profession": {
+          "type": "string"
+        },
+        "registation_number": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "foundation_year": {
+          "type": "string"
+        },
+        "representative_name": {
+          "type": "string"
+        },
+        "total_employees": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hashtags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Location"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "introduction",
+        "contact_information",
+        "profession",
+        "registation_number",
+        "foundation_year",
+        "representative_name",
+        "total_employees",
+        "hashtags",
+        "fields",
+        "locations"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Member Auth"
+    },
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Excel"
+    },
+    {
+      "name": "User"
+    },
+    {
+      "name": "Member"
+    },
+    {
+      "name": "Side Character"
+    },
+    {
+      "name": "Client"
+    },
+    {
+      "name": "Member Profile"
+    }
+  ]
+}
